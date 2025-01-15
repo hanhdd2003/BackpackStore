@@ -1,0 +1,61 @@
+<div class="container-xl">
+  <div class="table-responsive">
+    <div class="table-wrapper">
+      <div class="table-title">
+        <div class="row">
+          <div class="col-sm-6">
+            <h4><b>View Employee</b></h4>
+          </div>
+          <div class="col-sm-6">
+            <a href="#" routerLink="/Home" class="btn btn-success back"><i class='fas fa-arrow-circle-left'></i> &nbsp;Back</a>
+          </div>
+        </div>
+      </div>       
+      <table class="table table-striped table-hover table-bordered table-content">
+        <tbody>
+          <tr>
+            <td>
+              <label><b>ID</b></label>
+            </td>
+            <td>
+              <span>{{ employeeDetail.id }}</span>              
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <label><b>Type</b></label>
+            </td>
+            <td>
+              <span>{{ employeeDetail.type }}</span>              
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <label><b>Quantity</b></label>
+            </td>
+            <td>
+              <span>{{ employeeDetail.quantity }}</span>              
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <label><b>Price</b></label>
+            </td>
+            <td>
+              <span>{{ employeeDetail.price }}</span>              
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <label><b>Selled</b></label>
+            </td>
+            <td>
+              <span>{{ employeeDetail.selled }}</span>              
+            </td>
+          </tr>
+        </tbody>
+      </table>       
+    </div>
+  </div>
+</div>
+
