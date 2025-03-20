@@ -31,26 +31,26 @@ const MODALS: { [name: string]: Type<any> } = {
 };
 
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
+  selector: 'app-home-product',
+  templateUrl: './home-product.component.html',
+  styleUrls: ['./home-product.component.scss']
 })
-export class HomeComponent implements OnInit {
+export class HomeProductComponent implements OnInit {
   closeResult = '';
-  employeeList: any = [];
+  productList: any = [];
   constructor(private router: Router, private modalService: NgbModal,
     private toastr: ToastrService, private httpProvider : HttpProviderService) { }
 
   ngOnInit(): void {
-    this.getAllEmployee();
+    this.getAllProduct();
   }
 
-  async getAllEmployee() {
-    this.httpProvider.getAllEmployee().subscribe((data : any) => {
+  async getAllProduct() {
+    this.httpProvider.getAllProduct().subscribe((data : any) => {
       if (data != null && data.body != null) {
         var resultData = data.body;
         if (resultData) {
-          this.employeeList = resultData;
+          this.productList = resultData;
         }
       }
     },
@@ -58,31 +58,31 @@ export class HomeComponent implements OnInit {
         if (error) {
           if (error.status == 404) {
             if(error.error && error.error.message){
-              this.employeeList = [];
+              this.productList = [];
             }
           }
         }
       });
   }
 
-  AddEmployee() {
-    this.router.navigate(['AddEmployee']);
+  AddProduct() {
+    this.router.navigate(['AddProduct']);
   }
 
-  deleteEmployeeConfirmation(employee: any) {
+  deleteProductConfirmation(product: any) {
     this.modalService.open(MODALS['deleteModal'],
       {
         ariaLabelledBy: 'modal-basic-title'
       }).result.then((result) => {
-        this.deleteEmployee(employee);
+        this.deleteProduct(product);
       },
         (reason) => {});
   }
 
-  deleteEmployee(employee: any) {
-    this.httpProvider.deleteEmployeeById(employee.id).subscribe((data : any) => {
-      this.ngOnInit();
-      this.router.navigate(['/Home']);
+  deleteProduct(product: any) {
+    this.httpProvider.deleteProductById(product.id).subscribe((data : any) => {
+        this.ngOnInit();
+        this.router.navigate(['/Home-Product']);
     },
     (error : any) => {});
   }

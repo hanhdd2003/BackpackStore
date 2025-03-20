@@ -32,10 +32,11 @@ export class EditEmployeeComponent implements OnInit {
         var resultData = data.body;
         if (resultData) {
           this.editEmployeeForm.Id = resultData.id;
-          this.editEmployeeForm.type = resultData.type;
-          this.editEmployeeForm.quantity = resultData.quantity;
-          this.editEmployeeForm.price = resultData.price;
-          this.editEmployeeForm.selled = resultData.selled;
+          this.editEmployeeForm.firstName = resultData.firstName;
+          this.editEmployeeForm.lastName = resultData.lastName;
+          this.editEmployeeForm.email = resultData.email;
+          this.editEmployeeForm.address = resultData.address;
+          this.editEmployeeForm.phone = resultData.phone;
         }
       }
     },
@@ -46,8 +47,9 @@ export class EditEmployeeComponent implements OnInit {
     this.isSubmitted = true;
     if (isValid) {
       this.httpProvider.editEmployee(this.editEmployeeForm, this.editEmployeeForm.Id).subscribe(async data => {
-        if (data != null && data.body !== null) {
-          this.router.navigate(['/Home']);
+        
+        if (data != null) {
+                this.router.navigate(['/Home']);
         }
       },
         async error => {
@@ -62,8 +64,9 @@ export class EditEmployeeComponent implements OnInit {
 
 export class employeeForm {
   Id: number = 0;
-  type: string = "";
-  quantity: string = "";
-  price: string = "";
-  selled: string = "";
+  firstName: string = "";
+  lastName: string = "";
+  email: string = "";
+  address: string = "";
+  phone: string = "";
 }

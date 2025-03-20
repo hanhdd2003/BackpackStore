@@ -4,10 +4,10 @@
       <div class="table-title">
         <div class="row">
           <div class="col-sm-6">
-            <h4><b>View Employee</b></h4>
+            <h4><b>View Backpack</b></h4>
           </div>
           <div class="col-sm-6">
-            <a href="#" routerLink="/Home" class="btn btn-success back"><i class='fas fa-arrow-circle-left'></i> &nbsp;Back</a>
+            <a href="#" routerLink="/Home-Product" class="btn btn-success back"><i class='fas fa-arrow-circle-left'></i> &nbsp;Back</a>
           </div>
         </div>
       </div>       
@@ -15,42 +15,42 @@
         <tbody>
           <tr>
             <td>
-              <label><b>First Name</b></label>
+              <label><b>ID</b></label>
             </td>
             <td>
-              <span>{{ employeeDetail.firstName }}</span>              
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <label><b>Last Name</b></label>
-            </td>
-            <td>
-              <span>{{ employeeDetail.lastName }}</span>              
+              <span>{{ productDetail.id }}</span>              
             </td>
           </tr>
           <tr>
             <td>
-              <label><b>Email</b></label>
+              <label><b>Type</b></label>
             </td>
             <td>
-              <span>{{ employeeDetail.email }}</span>              
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <label><b>Address</b></label>
-            </td>
-            <td>
-              <span>{{ employeeDetail.address }}</span>              
+              <span>{{ productDetail.type }}</span>              
             </td>
           </tr>
           <tr>
             <td>
-              <label><b>Phone</b></label>
+              <label><b>Quantity</b></label>
             </td>
             <td>
-              <span>{{ employeeDetail.phone }}</span>              
+              <span>{{ productDetail.quantity }}</span>              
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <label><b>Price</b></label>
+            </td>
+            <td>
+              <span>{{ productDetail.price }}</span>              
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <label><b>Selled</b></label>
+            </td>
+            <td>
+              <span>{{ productDetail.selled }}</span>              
             </td>
           </tr>
         </tbody>

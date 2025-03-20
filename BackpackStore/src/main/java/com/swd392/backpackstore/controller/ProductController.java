@@ -1,7 +1,7 @@
 package com.swd392.backpackstore.controller;
 
 import com.swd392.backpackstore.model.Backpack;
-import com.swd392.backpackstore.model.BackpackDTO;
+import com.swd392.backpackstore.model.dto.BackpackDTO;
 import com.swd392.backpackstore.service.IBackpackService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -11,7 +11,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/backpacks")
-public class Controller {
+public class ProductController {
     @Autowired
     private IBackpackService backpackService;
 

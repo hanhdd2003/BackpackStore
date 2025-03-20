@@ -4,28 +4,28 @@ import { HttpProviderService } from '../service/http-provider.service';
 import { WebApiService } from '../service/web-api.service';
 
 @Component({
-  selector: 'app-view-employee',
-  templateUrl: './view-employee.component.html',
-  styleUrls: ['./view-employee.component.scss']
+  selector: 'app-view-product',
+  templateUrl: './view-product.component.html',
+  styleUrls: ['./view-product.component.scss']
 })
-export class ViewEmployeeComponent implements OnInit {
+export class ViewProductComponent implements OnInit {
 
-  employeeId: any;
-  employeeDetail : any= [];
+  productId: any;
+  productDetail : any= [];
    
   constructor(public webApiService: WebApiService, private route: ActivatedRoute, private httpProvider : HttpProviderService) { }
   
   ngOnInit(): void {
-    this.employeeId = this.route.snapshot.params['employeeId'];      
-    this.getEmployeeDetailById();
+    this.productId = this.route.snapshot.params['productId'];     
+    this.getProductDetailById();
   }
 
-  getEmployeeDetailById() {       
-    this.httpProvider.getEmployeeDetailById(this.employeeId).subscribe((data : any) => {      
+  getProductDetailById() {       
+    this.httpProvider.getProductDetailById(this.productId).subscribe((data : any) => {      
       if (data != null && data.body != null) {
         var resultData = data.body;
         if (resultData) {
-          this.employeeDetail = resultData;
+          this.productDetail = resultData;
         }
       }
     },

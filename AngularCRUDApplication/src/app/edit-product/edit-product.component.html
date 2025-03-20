@@ -1,0 +1,69 @@
+<div class="container-xl">
+  <div class="table-responsive">
+    <div class="table-wrapper">
+      <div class="table-title">
+        <div class="row">
+          <div class="col-sm-6">
+            <h4><b>Update Backpack</b></h4>
+          </div>
+          <div class="col-sm-6">
+            <a href="#" routerLink="/Home-Product" class="btn btn-success back"><i class='fas fa-arrow-circle-left'></i>
+              &nbsp;Back</a>
+          </div>
+        </div>
+      </div>
+      <form #productForm="ngForm">
+        <div class="table-content">
+          <div class="form-group p-10 row">
+            <div class="col-sm-3">
+              <label for="ID" class="p-t-b-10">ID<span class="requiredStar">*</span></label>
+            </div>
+            <div class="col-sm-9">
+              <input type="text" class="form-control" id="ID" readonly maxlength="255"
+                [(ngModel)]="editProductForm.Id" name="ID" #ID="ngModel">
+            </div>
+          </div>
+          <div class="form-group p-10 row">
+            <div class="col-sm-3">
+              <label for="Type" class="p-t-b-10">Type<span class="requiredStar">*</span></label>
+            </div>
+            <div class="col-sm-9">
+              <input type="text" class="form-control" id="type" required maxlength="255"
+                [(ngModel)]="editProductForm.type" name="Type" #Type="ngModel">
+            </div>
+          </div>
+          <div class="form-group p-10 row">
+            <div class="col-sm-3">
+              <label class="p-t-b-10">Quantity<span class="requiredStar">*</span></label>
+            </div>
+            <div class="col-sm-9">
+              <input type="number" class="form-control" id="Quantity" required maxlength="255"
+                [(ngModel)]="editProductForm.quantity" name="Quantity" #Quantity="ngModel">
+            </div>
+          </div>
+          <div class="form-group p-10 row">
+            <div class="col-sm-3">
+              <label class="p-t-b-10">Price<span class="requiredStar">*</span></label>
+            </div>
+            <div class="col-sm-9">
+              <input type="number" class="form-control" id="Price" required [(ngModel)]="editProductForm.price" name="Price"
+                #Price="ngModel">
+            </div>
+          </div>
+          <div class="form-group p-10 row">
+            <div class="col-sm-3">
+              <label class="p-t-b-10">Selled<span class="requiredStar">*</span></label>
+            </div>
+            <div class="col-sm-9">
+              <input type="number" class="form-control" id="Seleld" required maxlength="10"
+                [(ngModel)]="editProductForm.selled" name="Selled" #Selled="ngModel">
+            </div>
+          </div>
+        </div>
+        <div class="table-footer">
+          <button class="btn btn-success" (click)="EditProduct(productForm.form.valid)">Submit</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

@@ -1,4 +1,4 @@
-package com.swd392.backpackstore.model;
+package com.swd392.backpackstore.model.dto;
 
 public class BackpackDTO {
     private String type;

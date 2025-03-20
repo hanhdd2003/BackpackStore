@@ -5,15 +5,15 @@ import { ToastrService } from 'ngx-toastr';
 import { HttpProviderService } from '../service/http-provider.service';
 
 @Component({
-  selector: 'app-add-employee',
-  templateUrl: './add-employee.component.html',
-  styleUrls: ['./add-employee.component.scss']
+  selector: 'app-add-product',
+  templateUrl: './add-product.component.html',
+  styleUrls: ['./add-product.component.scss']
 })
-export class AddEmployeeComponent implements OnInit {
-  addEmployeeForm: employeeForm = new employeeForm();
+export class AddProductComponent implements OnInit {
+  addProductForm: productForm = new productForm();
 
-  @ViewChild("employeeForm")
-  employeeForm!: NgForm;
+  @ViewChild("productForm")
+  productForm!: NgForm;
 
   isSubmitted: boolean = false;
 
@@ -22,18 +22,18 @@ export class AddEmployeeComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  AddEmployee(isValid: any) {
+  AddProduct(isValid: any) {
     this.isSubmitted = true;
     if (isValid) {
-      this.httpProvider.saveEmployee(this.addEmployeeForm).subscribe(async data => {
-        if (data != null) {
-          this.router.navigate(['/Home']);
+      this.httpProvider.saveProduct(this.addProductForm).subscribe(async data => {
+        if (data != null && data.body !== null) {
+          this.router.navigate(['/Home-Product']);
         }
       },
         async error => {
           this.toastr.error(error.message);
           setTimeout(() => {
-            this.router.navigate(['/Home']);
+            this.router.navigate(['/Home-Product']);
           }, 500);
         });
     }
@@ -41,10 +41,9 @@ export class AddEmployeeComponent implements OnInit {
 
 }
 
-export class employeeForm {
-  firstName: string = "";
-  lastName: string = "";
-  email: string = "";
-  address: string = "";
-  phone: string = "";
+export class productForm {
+  type: string = "";
+  quantity: string = "";
+  price: string = "";
+  selled: string = "";
 }
