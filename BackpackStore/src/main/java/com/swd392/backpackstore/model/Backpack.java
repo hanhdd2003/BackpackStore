@@ -12,16 +12,17 @@ public class Backpack {
     private int quantity;
     private double price;
     private int selled;
-
+    private String description;
     public Backpack() {
     }
 
-    public Backpack(int id, String type, int quantity, double price, int selled) {
+    public Backpack(int id, String type, int quantity, double price, int selled, String description) {
         this.id = id;
         this.type = type;
         this.quantity = quantity;
         this.price = price;
         this.selled = selled;
+        this.description = description;
     }
 
     public int getId() {
@@ -62,5 +63,13 @@ public class Backpack {
 
     public void setSelled(int selled) {
         this.selled = selled;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 }

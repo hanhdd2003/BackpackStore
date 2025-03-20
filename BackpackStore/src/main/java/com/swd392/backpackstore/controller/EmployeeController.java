@@ -37,6 +37,7 @@ public class EmployeeController {
         employee.setEmail(employeeDTO.getEmail());
         employee.setAddress(employeeDTO.getAddress());
         employee.setPhone(employeeDTO.getPhone());
+        employee.setGender(employeeDTO.isGender());
         return ResponseEntity.ok(employeeServiceImp.addEmployee(employee));
 
     }

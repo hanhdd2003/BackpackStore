@@ -46,4 +46,5 @@ export class productForm {
   quantity: string = "";
   price: string = "";
   selled: string = "";
+  description:string="";
 }

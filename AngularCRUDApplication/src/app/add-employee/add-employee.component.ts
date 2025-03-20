@@ -47,4 +47,5 @@ export class employeeForm {
   email: string = "";
   address: string = "";
   phone: string = "";
+  gender: boolean = false;
 }

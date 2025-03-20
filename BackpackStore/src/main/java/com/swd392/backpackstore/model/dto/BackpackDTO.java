@@ -5,13 +5,15 @@ public class BackpackDTO {
     private int quantity;
     private double price;
     private int selled;
+    private String description;
     public BackpackDTO() {}
 
-    public BackpackDTO(String type, int quantity, double price, int selled) {
+    public BackpackDTO(String type, int quantity, double price, int selled, String description) {
         this.type = type;
         this.quantity = quantity;
         this.price = price;
         this.selled = selled;
+        this.description = description;
     }
 
     public String getType() {
@@ -44,5 +46,11 @@ public class BackpackDTO {
 
     public void setSelled(int selled) {
         this.selled = selled;
+    }
+    public String getDescription() {
+        return description;
+    }
+    public void setDescription(String description) {
+        this.description = description;
     }
 }

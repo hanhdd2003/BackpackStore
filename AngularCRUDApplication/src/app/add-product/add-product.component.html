@@ -21,8 +21,8 @@
             <div class="col-sm-9">
               <input type="text" class="form-control" id="Type" required maxlength="255"
                 [(ngModel)]="addProductForm.type" name="Type" #Type="ngModel">
-              
-                
+
+
             </div>
           </div>
           <div class="form-group p-10 row">
@@ -32,7 +32,7 @@
             <div class="col-sm-9">
               <input type="number" class="form-control" id="quantity" required min="0"
                 [(ngModel)]="addProductForm.quantity" name="quantity" #Quantity="ngModel">
-              
+
             </div>
           </div>
           <div class="form-group p-10 row">
@@ -40,19 +40,31 @@
               <label class="p-t-b-10">Price<span class="requiredStar">*</span></label>
             </div>
             <div class="col-sm-9">
-              <input type="number" class="form-control" id="price" required min="0"
-                [(ngModel)]="addProductForm.price" name="price" #Price="ngModel" >
-              
+              <input type="number" class="form-control" id="price" required min="0" [(ngModel)]="addProductForm.price"
+                name="price" #Price="ngModel">
+
             </div>
           </div>
+
+
+          <div class="form-group p-10 row">
+            <div class="col-sm-3">
+              <label class="p-t-b-10">Description<span class="requiredStar">*</span></label>
+            </div>
+            <div class="col-sm-9">
+              <textarea class="form-control" id="description" required [(ngModel)]="addProductForm.description"
+                name="description" #Description="ngModel" rows="4" cols="50"></textarea>
+            </div>
+          </div>
+
           <div class="form-group p-10 row">
             <div class="col-sm-3">
               <label class="p-t-b-10">Selled<span class="requiredStar">*</span></label>
             </div>
             <div class="col-sm-9">
-              <input type="number" class="form-control" id="selled" value="0" readonly [(ngModel)]="addProductForm.selled" name="selled"
-                #Address="ngModel">
-              
+              <input type="number" class="form-control" id="selled" value="0" readonly
+                [(ngModel)]="addProductForm.selled" name="selled" #Address="ngModel">
+
             </div>
           </div>
         </div>

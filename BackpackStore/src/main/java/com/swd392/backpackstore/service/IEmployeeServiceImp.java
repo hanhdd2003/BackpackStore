@@ -38,6 +38,7 @@ public class IEmployeeServiceImp implements IEmployeeService {
             emp.setEmail(employee.getEmail());
             emp.setAddress(employee.getAddress());
             emp.setPhone(employee.getPhone());
+            emp.setGender(employee.isGender());
             return employeeRepository.save(emp);
         });
     }

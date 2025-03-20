@@ -37,6 +37,8 @@ export class EditEmployeeComponent implements OnInit {
           this.editEmployeeForm.email = resultData.email;
           this.editEmployeeForm.address = resultData.address;
           this.editEmployeeForm.phone = resultData.phone;
+          this.editEmployeeForm.gender = resultData.gender;
+          // console.log(resultData.gender)
         }
       }
     },
@@ -69,4 +71,5 @@ export class employeeForm {
   email: string = "";
   address: string = "";
   phone: string = "";
+  gender: boolean | null = null;
 }

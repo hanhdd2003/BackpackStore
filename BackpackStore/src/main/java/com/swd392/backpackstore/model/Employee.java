@@ -16,17 +16,21 @@ public class Employee {
     private String email;
     private String address;
     private String phone;
+    private boolean gender;
+    private boolean status;
 
     public Employee() {
     }
 
-    public Employee(int id, String firstName, String lastName, String email, String address, String phone) {
+    public Employee(int id, String firstName, String lastName, String email, String address, String phone, boolean gender, boolean status) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
         this.address = address;
         this.phone = phone;
+        this.gender = gender;
+        this.status = status;
     }
 
     public int getId() {
@@ -76,4 +80,12 @@ public class Employee {
     public void setPhone(String phone) {
         this.phone = phone;
     }
+
+    public boolean isGender() { return gender; }
+
+    public void setGender(boolean gender) { this.gender = gender; }
+
+    public boolean isStatus() { return status; }
+
+    public void setStatus(boolean status) { this.status = status; }
 }

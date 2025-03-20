@@ -36,6 +36,7 @@ export class EditProductComponent implements OnInit {
           this.editProductForm.quantity = resultData.quantity;
           this.editProductForm.price = resultData.price;
           this.editProductForm.selled = resultData.selled;
+          this.editProductForm.description = resultData.description;
         }
       }
     },
@@ -66,4 +67,5 @@ export class productForm {
   quantity: string = "";
   price: string = "";
   selled: string = "";
+  description: string="";
 }

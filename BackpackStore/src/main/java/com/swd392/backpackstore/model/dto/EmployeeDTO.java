@@ -6,16 +6,17 @@ public class EmployeeDTO {
     private String email;
     private String address;
     private String phone;
-
+    private boolean gender;
     public EmployeeDTO() {
     }
 
-    public EmployeeDTO(String firstName, String lastName, String email, String address, String phone) {
+    public EmployeeDTO(String firstName, String lastName, String email, String address, String phone, boolean gender) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
         this.address = address;
         this.phone = phone;
+        this.gender = gender;
     }
 
     public String getFirstName() {
@@ -56,5 +57,13 @@ public class EmployeeDTO {
 
     public void setPhone(String phone) {
         this.phone = phone;
+    }
+
+    public boolean isGender() {
+        return gender;
+    }
+
+    public void setGender(boolean gender) {
+        this.gender = gender;
     }
 }

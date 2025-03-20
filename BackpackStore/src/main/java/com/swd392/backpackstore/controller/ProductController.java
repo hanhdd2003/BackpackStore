@@ -34,7 +34,7 @@ public class ProductController {
         backpack.setQuantity(backpackDTO.getQuantity());
         backpack.setPrice(backpackDTO.getPrice());
         backpack.setSelled(backpackDTO.getSelled());
-
+        backpack.setDescription(backpackDTO.getDescription());
         Backpack createdBackpack = backpackService.addBackpack(backpack);
         return ResponseEntity.ok(createdBackpack);
     }

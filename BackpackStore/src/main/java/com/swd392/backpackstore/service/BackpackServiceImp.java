@@ -38,6 +38,7 @@ public class BackpackServiceImp implements IBackpackService {
             oldBackpack.setPrice(backpack.getPrice());
             oldBackpack.setQuantity(backpack.getQuantity());
             oldBackpack.setSelled(backpack.getSelled());
+            oldBackpack.setDescription(backpack.getDescription());
             return backpackRepository.save(oldBackpack); // Lưu lại thông tin đã được cập nhật
         });
     }
