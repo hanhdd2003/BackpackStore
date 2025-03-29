@@ -1,19 +1,24 @@
 package com.swd392.backpackstore.model.dto;
 
+import org.springframework.web.multipart.MultipartFile;
+
 public class BackpackDTO {
     private String type;
     private int quantity;
     private double price;
     private int selled;
     private String description;
+    private MultipartFile imagePath;
     public BackpackDTO() {}
 
-    public BackpackDTO(String type, int quantity, double price, int selled, String description) {
+
+    public BackpackDTO(String type, int quantity, double price, int selled, String description, MultipartFile imagePath) {
         this.type = type;
         this.quantity = quantity;
         this.price = price;
         this.selled = selled;
         this.description = description;
+        this.imagePath = imagePath;
     }
 
     public String getType() {
@@ -52,5 +57,13 @@ public class BackpackDTO {
     }
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public MultipartFile getImagePath() {
+        return imagePath;
+    }
+
+    public void setImagePath(MultipartFile imagePath) {
+        this.imagePath = imagePath;
     }
 }

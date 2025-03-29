@@ -3,6 +3,7 @@ import { NgForm } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { HttpProviderService } from '../service/http-provider.service';
+import { HttpClient, HttpHeaders, HttpEventType, HttpResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-edit-product',
@@ -11,6 +12,7 @@ import { HttpProviderService } from '../service/http-provider.service';
 })
 export class EditProductComponent implements OnInit {
   editProductForm: productForm = new productForm();
+  selectedImage: File | null = null;  // Biến để lưu trữ hình ảnh đã chọn
 
   @ViewChild("productForm")
   productForm!: NgForm;
@@ -19,7 +21,7 @@ export class EditProductComponent implements OnInit {
   productId: any;
 
   constructor(private toastr: ToastrService, private route: ActivatedRoute, private router: Router,
-    private httpProvider: HttpProviderService) { }
+    private httpProvider: HttpProviderService, private http: HttpClient) { }
 
   ngOnInit(): void {
     this.productId = this.route.snapshot.params['productId'];
@@ -37,26 +39,46 @@ export class EditProductComponent implements OnInit {
           this.editProductForm.price = resultData.price;
           this.editProductForm.selled = resultData.selled;
           this.editProductForm.description = resultData.description;
+          // Set ảnh hiện tại nếu có
+          // this.editProductForm.imagePath = resultData.imagePath; (nếu có trường này)
         }
       }
     },
-      (error: any) => { });
+    (error: any) => { });
+  }
+
+  // Xử lý khi người dùng chọn ảnh
+  onFileSelected(event: any) {
+    this.selectedImage = event.target.files[0];
   }
 
   EditProduct(isValid: any) {
     this.isSubmitted = true;
     if (isValid) {
-      this.httpProvider.editProduct(this.editProductForm, this.editProductForm.Id).subscribe(async data => {
+      const formData = new FormData();
+      formData.append('type', this.editProductForm.type);
+      formData.append('quantity', this.editProductForm.quantity);
+      formData.append('price', this.editProductForm.price);
+      formData.append('selled', this.editProductForm.selled);
+      formData.append('description', this.editProductForm.description);
+
+      // Nếu có ảnh được chọn, thêm vào FormData
+      if (this.selectedImage) {
+        formData.append('image', this.selectedImage, this.selectedImage.name);
+      }
+
+      // Gửi dữ liệu lên API
+      this.httpProvider.editProduct(formData, this.editProductForm.Id).subscribe(async data => {
         if (data != null && data.body !== null) {
           this.router.navigate(['/Home-Product']);
         }
       },
-        async error => {
-          this.toastr.error(error.message);
-          setTimeout(() => {
-            this.router.navigate(['/Home-Product']);
-          }, 500);
-        });
+      async error => {
+        // this.toastr.error(error);
+        setTimeout(() => {
+          this.router.navigate(['/Home-Product']);
+        }, 500);
+      });
     }
   }
 }
@@ -67,5 +89,6 @@ export class productForm {
   quantity: string = "";
   price: string = "";
   selled: string = "";
-  description: string="";
+  description: string = "";
+  imagePath: string = "";  // Thêm trường hình ảnh nếu cần
 }

@@ -61,6 +61,14 @@
               <span>{{ productDetail.description }}</span>              
             </td>
           </tr>
+          <tr>
+            <td>
+              <label><b>Image</b></label>
+            </td>
+            <td>
+              <span><img width="200" height="200" [src]="'http://localhost:8080/api/backpacks/image/'+ productDetail.imagePath" alt=""></span>              
+            </td>
+          </tr>
         </tbody>
       </table>       
     </div>

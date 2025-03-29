@@ -13,16 +13,18 @@ public class Backpack {
     private double price;
     private int selled;
     private String description;
+    private String imagePath;
     public Backpack() {
     }
 
-    public Backpack(int id, String type, int quantity, double price, int selled, String description) {
+    public Backpack(int id, String type, int quantity, double price, int selled, String description, String imagePath) {
         this.id = id;
         this.type = type;
         this.quantity = quantity;
         this.price = price;
         this.selled = selled;
         this.description = description;
+        this.imagePath = imagePath;
     }
 
     public int getId() {
@@ -71,5 +73,13 @@ public class Backpack {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public String getImagePath() {
+        return imagePath;
+    }
+
+    public void setImagePath(String imagePath) {
+        this.imagePath = imagePath;
     }
 }
